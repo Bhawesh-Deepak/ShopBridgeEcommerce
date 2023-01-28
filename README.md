@@ -9,3 +9,7 @@ we have implemented the onion Architcture to develo the application, we have fol
 
 # Automapper
 We have also implement the Automapper for creating the DTO for converting the entity to model class and model class to entity.
+
+# IpRateLimiting
+
+W have also implement the Rate Limiting and Api throtling, So that User/Client can able to access the Api withing the specified time interval, For Example we have 10 second rate limiting means from one IP if we have access the Api (2 times) then from next Api call will have give Limit Exception:
