@@ -6,3 +6,6 @@ the versioning in Api so that we can have multiple version if we required in fut
 # Architecture:
 we have implemented the onion Architcture to develo the application, we have follow this architecture so that we can able to implement the microservice easily. Please find the below image to understand the architecture of the application:
 ![image](https://user-images.githubusercontent.com/48491702/215265166-43196b39-a8a8-419b-8180-9598bb022be1.png)
+
+# Automapper
+We have also implement the Automapper for creating the DTO for converting the entity to model class and model class to entity.
