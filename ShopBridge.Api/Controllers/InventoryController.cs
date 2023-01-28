@@ -13,21 +13,36 @@ using System.Threading.Tasks;
 
 namespace ShopBridge.Api.Controllers
 {
+
+    /// <summary>
+    /// Product Inventory management details to perform the insert update and delete operation
+    /// </summary>
     [ApiVersion("1.0")]
     [ApiController]
     [Route("api/{version:apiVersion}/[controller]/[action]")]
 
-
+   
     public class InventoryController : ControllerBase
     {
         private readonly IRepository<ProductModel, int> _IProductReposiyory;
         private readonly IMapper _IMapper;
+
+        /// <summary>
+        /// Inject  the required service to the controller constructor
+        /// </summary>
+        /// <param name="productRepository"></param>
+        /// <param name="mapper"></param>
         public InventoryController(IRepository<ProductModel, int> productRepository, IMapper mapper)
         {
             _IProductReposiyory = productRepository;
             _IMapper = mapper;
         }
 
+        /// <summary>
+        /// Create the Product Information
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Produces("application/json")]
         [Consumes("application/json")]
@@ -58,7 +73,10 @@ namespace ShopBridge.Api.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Get All the Product List which are active and not deleted.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Produces("application/json")]
         [Consumes("application/json")]
@@ -82,7 +100,11 @@ namespace ShopBridge.Api.Controllers
 
         }
 
-
+        /// <summary>
+        /// Update the Product Information details
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPatch]
         [Produces("application/json")]
         [Consumes("application/json")]
@@ -112,6 +134,13 @@ namespace ShopBridge.Api.Controllers
 
         }
 
+
+        /// <summary>
+        /// Delete the Product by Id we have to perform the soft delete as per requirement, we are not going to delete the Product
+        /// from data base just make the isDeleted= true.
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Produces("application/json")]
         [Consumes("application/json")]
